@@ -1159,7 +1159,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             text="""<b>{} {}</b>
             
-<b>Sᴏʀʀʏ ɪ ᴏɴʟʏ ᴡᴏʀᴋ ᴏɴ</b> <b><a href='https://t.me/cinemaworld_123'>Cⁱⁿᵉᵐᵃ Wᵒʳˡᵈ</a></b><b> Gʀᴏᴜᴘ. Nᴏ ᴏᴛʜᴇʀ ᴄᴏᴍᴍᴀɴᴅ ᴡɪʟʟ ᴡᴏʀᴋ ᴏɴ ᴛʜɪs ʙᴏᴛ ᴇxᴄᴇᴘᴛ ᴘɪɴɢ. ᴅᴏɴ’ᴛ ᴡᴀsᴛᴇ ʏᴏᴜʀ ᴛɪᴍᴇ</b>""".format(
+<b>Sᴏʀʀʏ ɪ ᴏɴʟʏ ᴡᴏʀᴋ ᴏɴ</b> <b><a href='https://t.me/CINEMAWORlDGRP'>Cɪɴᴇᴍᴀ Wᴏʀʟᴅ</a></b><b> Gʀᴏᴜᴘ. Nᴏ ᴏᴛʜᴇʀ ᴄᴏᴍᴍᴀɴᴅ ᴡɪʟʟ ᴡᴏʀᴋ ᴏɴ ᴛʜɪs ʙᴏᴛ ᴇxᴄᴇᴘᴛ ᴘɪɴɢ. ᴅᴏɴ’ᴛ ᴡᴀsᴛᴇ ʏᴏᴜʀ ᴛɪᴍᴇ</b>""".format(
                 get_greeting(), query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
