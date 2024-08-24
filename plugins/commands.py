@@ -137,27 +137,13 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
-                )
+                reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚡️ 𝗣𝗜𝗥𝗢 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 ⚡️', url=f"https://t.me/piroxbots") ] ] ))
             filetype = msg.media
-            file = getattr(msg, filetype.value)
+            file = getattr(msg, filetype)
             title = file.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
-                try:
-                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
-                except:
-                    return
-            await msg.edit_caption(f_caption)
-            return
-        except:
-            pass
-        return await message.reply('No such file exist.')
-    files = files_[0]
-    title = files.file_name
-    size=get_size(files.file_size)
-    f_caption=files.file_name
-    if CUSTOM_FILE_CAPTION:
                 try:
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
                 except:
@@ -194,7 +180,7 @@ async def start(client, message):
     await message.reply_text(
         text="<b>Your File Has Been Deleted To Avoid BOT Ban.😇\nYou Can Request Again If You Want!🫵🏻</b>",
         disable_web_page_preview=True,   
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔰 𝖡𝖫𝖠𝖲𝖳𝖤𝖱 𝖫𝖨𝖭𝖪𝖹 🔰", url=f"https://t.me/blaster_linkz")]]))
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔰 CINEMA WORLD 🔰", url=f"https://t.me/LCULINKZ")]]))
     return
     
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
