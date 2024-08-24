@@ -98,6 +98,9 @@ async def ForceSub(bot: Client, update: Message, file_id: str = False, mode="che
             [
                 InlineKeyboardButton("➳ 𝐽𝑂𝐼𝑁 𝑈𝑃𝐷𝐴𝑇𝐸 𝐶𝐻𝑁𝑁𝑁𝐸𝐿 ✺", url=invite_link)
             ]
+            ],
+                 InlineKeyboardButton(" 🔄 Try Again 🔄 ", url=file_id)
+                
         ]
 
         if file_id is False:
