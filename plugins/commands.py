@@ -180,7 +180,7 @@ async def start(client, message):
     await message.reply_text(
         text="<b>Your File Has Been Deleted To Avoid BOT Ban.😇\nYou Can Request Again If You Want!🫵🏻</b>",
         disable_web_page_preview=True,   
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔰 CINEMA WORLD 🔰", url=f"https://t.me/LCULINKZ")]]))
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔰 CINEMA WORLD 🔰", url=f"https://t.me/CINEMAWORlDGRP")]]))
     return
     
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
