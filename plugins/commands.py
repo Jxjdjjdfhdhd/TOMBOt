@@ -169,11 +169,11 @@ async def start(client, message):
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚡️ 𝗣𝗜𝗥𝗢 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 ⚡️', url=f"https://t.me/piroxbots") ] ] ))
+        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚡️ 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 ⚡️', url=f"https://t.me/LCULINKZ") ] ] ))
     ok = await message.reply_text(
         text=script.DELETE_TXT,
         disable_web_page_preview=True,   
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚠️ 𝖡𝗈𝗍 1️⃣", url=f"https://t.me/pfautofilebot"),InlineKeyboardButton("⚠️ 𝖡𝗈𝗍 2️⃣", url=f"https://t.me/profilesv3bot")]]))
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚠️ 𝖡𝗈𝗍 1️⃣", url=f"https://t.me/TomLcu_bot"),InlineKeyboardButton("⚠️ 𝖡𝗈𝗍 2️⃣", url=f"https://t.me/TonyStark_v5_bot")]]))
     await asyncio.sleep(300)
     await f.delete()
     await ok.delete()
