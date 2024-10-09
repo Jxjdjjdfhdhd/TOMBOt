@@ -116,32 +116,36 @@ class script(object):
 ▣ <a href=t.me/cinemaworld_update>𝙲𝙸𝙽𝙴𝙼𝙰 𝚆𝙾𝚁𝙻𝙳 𝚄𝙿𝙳𝙰𝚃𝙴𝚂​</a>
 ╚═════•✧❅✦❅✧•═════╝</b>""" 
     
-    STATUS_TXT = """📂 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌     - <code>{}</code>
+    STATUS_TXT = """<b><u>📂 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 -</u></b> <code>{}</code>
 
-𒆜  𝗗𝗕 1️⃣
+<b><u>🗃 𝖣𝖺𝗍𝖺𝖻𝖺𝗌𝖾 1️⃣</u></b>
 ╭ ▸ 𝖴𝗌𝖾𝗋𝗌 : <code>{}</code>
 ├ ▸ 𝖢𝗁𝖺𝗍𝗌  : <code>{}</code>
 ╰ ▸ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>MB
 
- 𒆜 𝗗𝗕 2️⃣
-╭ ▸ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 :<code>{}</code>
-├ ▸ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾 :<code>{}</code>MB
-╰ ▸ Free :<code>{}</code>MB
+<b><u>🗃 𝖣𝖺𝗍𝖺𝖻𝖺𝗌𝖾 2️⃣</u></b>
+╭ ▸ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 : <code>{}</code>
+╰ ▸ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>MB
 
- 𒆜 𝗗𝗕 3️⃣ 
-╭ ▸ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 :<code>{}</code>
-├ ▸ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾 :<code>{}</code>MB
-╰ ▸ Free :<code>{}</code>MB
+<b><u>🗃 𝖣𝖺𝗍𝖺𝖻𝖺𝗌𝖾 3️⃣</u></b>
+╭ ▸ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 : <code>{}</code>
+╰ ▸ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>MB
 
-𒆜  𝗗𝗕 4️⃣
-╭ ▸ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 :<code>{}</code>
-├ ▸ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾 :<code>{}</code>MB
-╰ ▸ Free :<code>{}</code>MB
+<b><u>🗃 𝖣𝖺𝗍𝖺𝖻𝖺𝗌𝖾 4️⃣</u></b>
+╭ ▸ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 : <code>{}</code>
+╰ ▸ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>MB
 
-𒆜 𝗗𝗕 5️⃣
-╭ ▸ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 :<code>{}</code>
-├ ▸ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾 :<code>{}</code>MB
-╰ ▸ Free :<code>{}</code>MB"""
+<b><u>🗃 𝖣𝖺𝗍𝖺𝖻𝖺𝗌𝖾 5️⃣</u></b>
+╭ ▸ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 : <code>{}</code>
+╰ ▸ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>MB
+
+<blockquote><b><u>🚀 𝖫𝖺𝗌𝗍 𝖴𝗉𝖽𝖺𝗍𝖾𝖽 𝖮𝗇 🚀</u></b>
+{}</blockquote>"""
+
+    TOTAL_TXT = """<b><u>📂 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 -</u></b> <code>{}</code>
+
+<blockquote><b><u>🚀 𝖫𝖺𝗌𝗍 𝖴𝗉𝖽𝖺𝗍𝖾𝖽 𝖮𝗇 🚀</u></b>
+{}</blockquote>"""
     
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
