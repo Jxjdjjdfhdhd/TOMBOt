@@ -184,4 +184,9 @@ Name - {}
 <blockquote>𝗙𝗼𝗿 𝗠𝗼𝗿𝗲 𝗤𝘂𝗮𝗹𝗶𝘁𝗮𝘁𝗶𝘃𝗲 𝗙𝗶𝗹𝗲𝘀 𝗨𝘀𝗲 𝗕𝗲𝗹𝗼𝘄 𝗕𝗼𝘁𝘀.</blockquote>
 
 𝗧𝗵𝗮𝗻𝗸 𝗬𝗼𝘂 :)"""
+    LATEST_TXT = """<b><u>⭕️ Latest HD Releases</b></u>
+
+    <b>✅️ BHARATHANATYAM  🔉MALAYALAM 
+
+     ✅️ TURBO 🔉MULTIAUDIO</b>"""
 
