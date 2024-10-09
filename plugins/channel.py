@@ -1,9 +1,10 @@
 from pyrogram import Client, filters
-from info import CHANNELS
+from info import CHANNELS, LOG_CHANNEL
 from database.ia_filterdb import save_file2, save_file3, save_file4, save_file5, check_file
 
 media_filter = filters.document | filters.video | filters.audio
 
+recent_movies = []
 
 @Client.on_message(filters.chat(CHANNELS) & media_filter)
 async def media(bot, message):
