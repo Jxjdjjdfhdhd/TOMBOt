@@ -131,65 +131,65 @@ async def start(client, message):
     if not status:
         return
 
-    data = message.command[1]
+    kk, file_id = message.command[1].split("_", 1) if "_" in message.command[1] else (False, False)
+    pre = ('checksubp' if kk == 'filep' else 'checksub') if kk else False
+
+    status = await ForceSub(client, message, file_id=file_id, mode=pre)
+    if not status:
+        return    
     try:
         pre, file_id = data.split('_', 1)
-    except:
-        file_id = data
+    except:      
         pre = ""
-    files_ = await get_file_details(file_id)           
-    if not files_:
-        pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
-        try:
-            msg = await client.send_cached_media(
-                chat_id=message.from_user.id,
-                file_id=file_id,
-                protect_content=True if pre == 'filep' else False,
-                reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚡️ 𝗣𝗜𝗥𝗢 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 ⚡️', url=f"https://t.me/piroxbots") ] ] ))
-            filetype = msg.media
-            file = getattr(msg, filetype)
-            title = file.file_name
-            size=get_size(file.file_size)
-            f_caption = f"<code>{title}</code>"
-            if CUSTOM_FILE_CAPTION:
+    if data.split("-", 1)[0] == "BATCH":
+        sts = await message.reply("<b>Please wait...</b>")
+        file_id = data.split("-", 1)[1]
+        msgs = BATCH_FILES.get(file_id)
+        if not msgs:
+            file = await client.download_media(file_id)
+            try: 
+                with open(file) as file_data:
+                    msgs=json.loads(file_data.read())
+            except:
+                await sts.edit("FAILED")
+                return await client.send_message(LOG_CHANNEL, "UNABLE TO OPEN FILE.")
+            os.remove(file)
+            BATCH_FILES[file_id] = msgs
+
+        filesarr = []
+        for msg in msgs:
+            title = msg.get("title")
+            size=get_size(int(msg.get("size", 0)))
+            f_caption=msg.get("caption", "")
+            if BATCH_FILE_CAPTION:
                 try:
-                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
-                except:
-                    return
-            await msg.edit_caption(f_caption)
-            return
-        except:
-            pass
-        return await message.reply('No such file exist.')
-    files = files_[0]
-    title = files.file_name
-    size=get_size(files.file_size)
-    f_caption=files.file_name
-    if CUSTOM_FILE_CAPTION:
-        try:
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
-        except Exception as e:
-            logger.exception(e)
-            f_caption=f_caption
-    if f_caption is None:
-        f_caption = f"{files.file_name}"
-    f = await client.send_cached_media(
-        chat_id=message.from_user.id,
-        file_id=file_id,
-        caption=f_caption,
-        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚡️ 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 ⚡️', url=f"https://t.me/LCULINKZ") ] ] ))
-    ok = await message.reply_text(
-        text=script.DELETE_TXT,
-        disable_web_page_preview=True,   
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚠️ 𝖡𝗈𝗍 1️⃣", url=f"https://t.me/TomLcu_bot"),InlineKeyboardButton("⚠️ 𝖡𝗈𝗍 2️⃣", url=f"https://t.me/TonyStark_v5_bot")]]))
-    await asyncio.sleep(300)
-    await f.delete()
-    await ok.delete()
-    await message.reply_text(
-        text="<b>Your File Has Been Deleted To Avoid BOT Ban.😇\nYou Can Request Again If You Want!🫵🏻</b>",
-        disable_web_page_preview=True,   
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔰 CINEMA WORLD 🔰", url=f"https://t.me/CINEMAWORlDGRP")]]))
-    return
+                    f_caption=BATCH_FILE_CAPTION.format(mention=message.from_user.mention, file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+                except Exception as e:
+                    logger.exception(e)
+                    f_caption=f_caption
+            if f_caption is None:
+                f_caption = f"{title}"
+            try:
+                if STREAM_MODE == True:
+                    # Create the inline keyboard button with callback_data
+                    user_id = message.from_user.id
+                    username =  message.from_user.mention 
+
+                    log_msg = await client.send_cached_media(
+                        chat_id=LOG_CHANNEL,
+                        file_id=msg.get("file_id"),
+                    )
+                    fileName = {quote_plus(get_name(log_msg))}
+                    stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                    download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+ 
+                    await log_msg.reply_text(
+                        text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
+                        quote=True,
+                        disable_web_page_preview=True,
+                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
+                                                            InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
+        )
     
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
