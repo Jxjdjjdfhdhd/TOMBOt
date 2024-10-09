@@ -182,7 +182,147 @@ async def start(client, message):
                         disable_web_page_preview=True,
                         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
                                                             InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
-        )
+                   )
+               if STREAM_MODE == True:
+                    button = [[
+                        InlineKeyboardButton('Gʀᴏᴜᴘ', url=f'https://t.me/cinemakalavara_group'),
+                        InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                    ],[
+                        InlineKeyboardButton('𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥', url="https://t.me/AlanWalker_TG")
+                    ],[
+                        InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
+                        InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)
+                    ],[
+                        InlineKeyboardButton("• ᴡᴀᴛᴄʜ ɪɴ ᴡᴇʙ ᴀᴘᴘ •", web_app=WebAppInfo(url=stream))
+                    ]]
+                else:
+                    button = [[
+                        InlineKeyboardButton('Gʀᴏᴜᴘ', url=f'https://t.me/cinemakalavara_group'),
+                        InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                    ],[
+                        InlineKeyboardButton('𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥', url="https://t.me/AlanWalker_TG")
+                    ]]
+                msg = await client.send_cached_media(
+                    chat_id=message.from_user.id,
+                    file_id=msg.get("file_id"),
+                    caption=f_caption,
+                    protect_content=msg.get('protect', False),
+                    reply_markup=InlineKeyboardMarkup(button)
+                )
+                filesarr.append(msg)
+                
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+                logger.warning(f"Floodwait of {e.x} sec.")
+                msg = await client.send_cached_media(
+                    chat_id=message.from_user.id,
+                    file_id=msg.get("file_id"),
+                    caption=f_caption,
+                    protect_content=msg.get('protect', False),
+                    reply_markup=InlineKeyboardMarkup(button)
+                )
+                filesarr.append(msg)
+                
+                k = await client.send_photo(photo=IMP_IMG, chat_id = message.from_user.id, caption=f"<b>❗️❗️IMPORTANT❗️❗️\n\n Tʜɪs Fɪʟᴇ Wɪʟʟ Bᴇ Dᴇʟᴇᴛᴇᴅ Fʀᴏᴍ Hᴇʀᴇ Wɪᴛʜɪɴ 10 Mɪɴᴜᴛᴇ.Pʟᴇᴀsᴇ Fᴏʀᴡᴀʀᴅ Tʜɪs Fɪʟᴇ Tᴏ Yᴏᴜʀ Sᴀᴠᴇᴅ Mᴇssᴀɢᴇs Oʀ Aɴʏ Cʜᴀᴛ Aɴᴅ Sᴛᴀʀᴛ Dᴏᴡɴʟᴏᴀᴅ Tʜᴇʀᴇ.</b>", reply_markup=InlineKeyboardMarkup(
+                    [[
+                        InlineKeyboardButton('𝙼𝙰𝙻', callback_data='mallu'),
+                        InlineKeyboardButton('𝚃𝙰𝙼', callback_data='tamilu'),
+                        InlineKeyboardButton('𝙷𝙸𝙽', callback_data='hindiu')
+                    ]]
+                )
+            )
+                await asyncio.sleep(600)
+                for x in filesarr:
+                    await x.delete()
+                await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
+            
+            except Exception as e:
+                logger.warning(e, exc_info=True)
+                continue
+            await asyncio.sleep(1) 
+        await sts.delete()
+        
+        k = await client.send_photo(photo=IMP_IMG, chat_id = message.from_user.id, caption=f"<b>❗️❗️IMPORTANT❗️❗️\n\n Tʜɪs Fɪʟᴇ Wɪʟʟ Bᴇ Dᴇʟᴇᴛᴇᴅ Fʀᴏᴍ Hᴇʀᴇ Wɪᴛʜɪɴ 10 Mɪɴᴜᴛᴇ.Pʟᴇᴀsᴇ Fᴏʀᴡᴀʀᴅ Tʜɪs Fɪʟᴇ Tᴏ Yᴏᴜʀ Sᴀᴠᴇᴅ Mᴇssᴀɢᴇs Oʀ Aɴʏ Cʜᴀᴛ Aɴᴅ Sᴛᴀʀᴛ Dᴏᴡɴʟᴏᴀᴅ Tʜᴇʀᴇ.</b>", reply_markup=InlineKeyboardMarkup(
+                    [[
+                        InlineKeyboardButton('𝙼𝙰𝙻', callback_data='mallu'),
+                        InlineKeyboardButton('𝚃𝙰𝙼', callback_data='tamilu'),
+                        InlineKeyboardButton('𝙷𝙸𝙽', callback_data='hindiu')
+                    ]]
+                )
+            )
+        await asyncio.sleep(600)
+        for x in filesarr:
+            await x.delete()
+        await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")       
+        
+        return
+                    
+    data = message.command[1]
+    try:
+        pre, file_id = data.split('_', 1)
+    except:
+        file_id = data
+        pre = ""
+    files_ = await get_file_details(file_id)           
+    if not files_:
+        pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
+        try:
+            msg = await client.send_cached_media(
+                chat_id=message.from_user.id,
+                file_id=file_id,
+                protect_content=True if pre == 'filep' else False,
+                )
+            filetype = msg.media
+            file = getattr(msg, filetype.value)
+            title = file.file_name
+            size=get_size(file.file_size)
+            f_caption = f"<code>{title}</code>"
+            if CUSTOM_FILE_CAPTION:
+                try:
+                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption, mention=message.from_user.mention)
+                except:
+                    return
+            await msg.edit_caption(f_caption)
+            return
+        except:
+            pass
+        return await message.reply('No such file exist.')
+    files = files_[0]
+    title = files.file_name
+    size=get_size(files.file_size)
+    f_caption=files.file_name
+    if CUSTOM_FILE_CAPTION:
+        try:
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption, mention=message.from_user.mention)
+        except Exception as e:
+            logger.exception(e)
+            f_caption=f_caption
+    if f_caption is None:
+        f_caption = f"{files.file_name}"
+    ok = await client.send_cached_media(
+        chat_id=message.from_user.id,
+        file_id=file_id,
+        caption=f_caption,
+        protect_content=True if pre == 'filep' else False,
+        reply_markup=InlineKeyboardMarkup(
+                          [
+                            [                            
+                            InlineKeyboardButton('🖥 𝗡𝗘𝗪 𝗢𝗧𝗧 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 🖥', url=f'https://t.me/OTT_ARAKAL_THERAVAD_MOVIESS')
+                          ],[     
+                            InlineKeyboardButton('⭕️ 𝗚𝗘𝗧 𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗟𝗜𝗡𝗞𝗦 ⭕️', url="https://t.me/ARAKAL_THERAVAD_GROUP_LINKS")                      
+                            ],[
+                            InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')
+                           ]
+                        ]
+                    )
+    )
+    replied = ok.id    
+    da = await message.reply(DELETE_TXT, reply_to_message_id=replied)
+    await asyncio.sleep(30)
+    await message.delete()    
+    await da.delete()
+    await asyncio.sleep(600)
+    await ok.delete()
     
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
