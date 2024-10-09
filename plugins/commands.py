@@ -468,6 +468,12 @@ async def save_template(client, message):
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
 
+@Client.on_message(filters.command('latest'))
+async def latest(client, message):
+    await message.reply_text(
+        text=script.latest_txt.format(message.from_user.mention),
+        parse_mode=enums.ParseMode.HTML)
+
 @Client.on_message(filters.command('restart') & filters.user(ADMINS))
 async def restart_bot(client, message):
     msg = await message.reply_text(
