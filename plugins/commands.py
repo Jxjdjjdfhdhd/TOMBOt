@@ -471,7 +471,7 @@ async def save_template(client, message):
 @Client.on_message(filters.command('latest'))
 async def latest(client, message):
     await message.reply_text(
-        text=script.latest_txt.format(message.from_user.mention),
+        text=script.LATEST_TXT.format(message.from_user.mention),
         parse_mode=enums.ParseMode.HTML)
 
 @Client.on_message(filters.command('restart') & filters.user(ADMINS))
