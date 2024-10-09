@@ -187,7 +187,7 @@ Name - {}
     
     LATEST_TXT = """<b><u>⭕️ Latest HD Releases</b></u>
 
-    <b>✅️ BHARATHANATYAM  🔉MALAYALAM 
-
-     ✅️ TURBO 🔉MULTIAUDIO</b>"""
+    <b>✅️ BHARATHANATYAM</b> #Malayalam
+ 
+    <b>✅️ TURBO #Multiaudio</b>"""
 
