@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from info import CHANNELS, MOVIE_UPDATE_CHANNEL, ADMINS , LOG_CHANNEL
+from info import CHANNEL, MOVIE_UPDATE_CHANNEL, ADMINS , LOG_CHANNEL
 from database.ia_filterdb import save_file5, unpack_new_file_id
 from utils import get_poster, temp
 import re
@@ -13,14 +13,14 @@ media_filter = filters.document | filters.video
 
 media_filter = filters.document | filters.video
 
-@Client.on_message(filters.chat(CHANNELS) & media_filter)
+@Client.on_message(filters.chat(CHANNEL) & media_filter)
 async def media(bot, message):
     bot_id = bot.me.id
     media = getattr(message, message.media.value, None)
     if media.mime_type in ['video/mp4', 'video/x-matroska']: 
         media.file_type = message.media.value
         media.caption = message.caption
-        success_sts = await save_file(media)
+        success_sts = await save_file5(media)
         if success_sts == 'suc':
             latest_movie = await formatted_name(file_name=media.file_name, caption=media.caption)
             if latest_movie in recent_movies:
