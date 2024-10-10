@@ -75,7 +75,7 @@ async def addgfilter(client, message):
     await add_gfilter('gfilters', text, reply_text, btn, fileid, alert)
 
     await message.reply_text(
-        f"GFilter for  `{text}`  added",
+        f"<b>GFilter for  `{text}`  added</b>",
         quote=True,
         parse_mode=enums.ParseMode.MARKDOWN
     )
