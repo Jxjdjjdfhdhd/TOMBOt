@@ -1132,7 +1132,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.startswith("send_fall"):
         temp_var, userid = query.data.split("#")
         if int(query.from_user.id) not in [query.message.reply_to_message.from_user.id, 0]:
-            return await query.answer("This is not Your Request 🚫\n\nDo Search your own ✅", show_alert=True)
+            return await query.answer("𝑻𝒉𝒊𝒔 𝒊𝒔 𝒏𝒐𝒕 𝒀𝒐𝒖𝒓 𝑹𝒆𝒒𝒖𝒆𝒔𝒕🚫\n\n𝑫𝒐 𝑺𝒆𝒂𝒓𝒄𝒉 𝒚𝒐𝒖𝒓 𝒐𝒘𝒏 ✅", show_alert=True)
         files = temp.SEND_ALL_TEMP.get(userid)
         is_over = await send_all(client, query.from_user.id, files)
         if is_over == 'done':
@@ -1142,7 +1142,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             return await query.answer(url=f"https://t.me/{temp.U_NAME}?start={userid}_{file_id}")
         else:
             return await query.answer(f"Eʀʀᴏʀ: {is_over}", show_alert=True)
-            
 
         
     elif query.data == "pages":
