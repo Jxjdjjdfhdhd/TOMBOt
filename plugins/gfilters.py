@@ -80,7 +80,7 @@ async def addgfilter(client, message):
         parse_mode=enums.ParseMode.MARKDOWN
     )
 
-@Client.on_message(filters.command('check'))
+@Client.on_message(filters.command('latest'))
 async def get_all_gfilters(client, message):
     texts = await get_gfilters('gfilters')
     count = await count_gfilters('gfilters')
