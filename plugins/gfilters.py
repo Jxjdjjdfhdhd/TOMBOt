@@ -85,10 +85,10 @@ async def get_all_gfilters(client, message):
     texts = await get_gfilters('gfilters')
     count = await count_gfilters('gfilters')
     if count:
-        gfilterlist = f"**𝖳𝗈𝗍𝖺𝗅 𝖡𝖺𝗍𝖼𝗁𝖾𝗌 𝖠𝗏𝖺𝗂𝖺𝖻𝗅𝖾 : {count}**\n\n"
+        gfilterlist = f"**⭕️ Latest HD Releases**\n\n"
 
         for text in texts:
-            keywords = " ✅ `{}`\n".format(text)
+            keywords = " <b>✅ `{}`\n</b>".format(text)
 
             gfilterlist += keywords
 
