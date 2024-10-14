@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from utils import check_loop_sub, get_size, req_sub
 from database.join_reqs import JoinReqs, JoinReqs2
 from info import REQ_CHANNEL, REQ_CHANNEL2, AUTH_CHANNEL, JOIN_REQS_DB, ADMINS, CUSTOM_FILE_CAPTION
-from database.ia_inlinedb import Media2, Media3, Media4, Media5, get_file_details, get_search_results, get_bad_files, db as clientDB, db2 as clientDB2, db3 as clientDB3, db4 as clientDB4, db5 as clientDB5
+from database.ia_filterdb import Media2, Media3, Media4, Media5, get_file_details, get_search_results, get_bad_files, db as clientDB, db2 as clientDB2, db3 as clientDB3, db4 as clientDB4, db5 as clientDB5
 from database.ia_filterdb import get_file_details
 from logging import getLogger
 
